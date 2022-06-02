@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Models\PostsModel;
+
+use \PDO;
+
 function findAll(PDO $connexion)
 {
     $sql = "SELECT *

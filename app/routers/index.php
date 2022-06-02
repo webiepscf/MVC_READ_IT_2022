@@ -1,5 +1,6 @@
 <?php
 
+use \App\Controllers\PostsController;
 
 if (isset($_GET['postID'])) :
     // ROUTE DU DETAIL D'UN POST
@@ -7,7 +8,7 @@ if (isset($_GET['postID'])) :
     // CTRL: postsController
     // ACTION: showAction
     require_once '../app/controllers/postsController.php';
-    showAction($connexion, $_GET['postID']);
+    PostsController\showAction($connexion, $_GET['postID']);
 
 
 else :
@@ -16,5 +17,5 @@ else :
     // CTRL: postsController
     // ACTION: index
     require_once '../app/controllers/postsController.php';
-    indexAction($connexion);
+    PostsController\indexAction($connexion);
 endif;

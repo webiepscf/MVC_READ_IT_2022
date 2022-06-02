@@ -17,21 +17,17 @@
 <!-- TAGS -->
 <?php
 include_once '../app/models/tagsModel.php';
-$tags = findAllByPostId($connexion, $post['id']);
+$tags = \App\Models\TagsModel\findAllByPostId($connexion, $post['id']);
 include '../app/views/tags/_indexByPostId.php';
 ?>
 
 
 <!-- AUTHOR -->
-<div class="about-author d-flex p-4 bg-light">
-    <div class="bio mr-5">
-        <img src="assets/images/person_1.jpg" alt="Image placeholder" class="img-fluid mb-4">
-    </div>
-    <div class="desc">
-        <h3>George Washington</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
-    </div>
-</div>
+<?php
+include_once '../app/models/authorsModel.php';
+$author = \App\Models\AuthorsModel\findOneById($connexion, $post['author_id']);
+include '../app/views/authors/_show.php';
+?>
 
 
 <div class="pt-5 mt-5">

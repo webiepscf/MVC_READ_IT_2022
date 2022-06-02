@@ -1,4 +1,10 @@
 <?php
+
+namespace App\Models\TagsModel;
+
+use \PDO;
+
+
 function findAllByPostId(PDO $connexion, int $postID)
 {
     // Tous les tags du post n°$postID par ordre alphabétique
