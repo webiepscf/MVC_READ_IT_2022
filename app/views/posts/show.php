@@ -31,34 +31,16 @@ include '../app/views/authors/_show.php';
 
 
 <div class="pt-5 mt-5">
-    <h3 class="mb-5">3 Comments</h3>
-    <ul class="comment-list">
-        <li class="comment">
-            <div class="comment-body">
-                <h3>John Doe</h3>
-                <div class="meta mb-3">November 13, 2019 at 2:21pm</div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-            </div>
-        </li>
+    <!-- COMMENTS -->
+    <?php
+    include '../app/models/commentsModel.php';
+    $comments = \App\Models\CommentsModel\findAllByPostId($connexion, $post['id']);
+    include '../app/views/comments/_indexByPostId.php';
+    ?>
 
-        <li class="comment">
-            <div class="comment-body">
-                <h3>John Doe</h3>
-                <div class="meta mb-3">November 13, 2019 at 2:21pm</div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-            </div>
-        </li>
 
-        <li class="comment">
-            <div class="comment-body">
-                <h3>John Doe</h3>
-                <div class="meta mb-3">November 13, 2019 at 2:21pm</div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-            </div>
-        </li>
-    </ul>
-    <!-- END comment-list -->
 
+    <!-- FORM COMMENTS -->
     <div class="comment-form-wrap pt-5">
         <h3 class="mb-5">Leave a comment</h3>
         <form action="#" class="p-5 bg-light" method="post">
